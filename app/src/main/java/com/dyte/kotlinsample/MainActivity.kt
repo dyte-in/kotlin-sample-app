@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             )
 
             // Depending on the meeting type either assign the role or preset for the participant
-            if (meetingType == "Group Call") {
+            if (meetingType == "Group Call" || meetingType == "Custom Call") {
                 body.roleName = role
             } else if (meetingType == "Webinar Call") {
                 if (role == "host") {
