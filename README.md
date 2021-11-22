@@ -14,9 +14,9 @@
     <br />
     <a href="https://app.dyte.io">View Demo</a>
     ·
-    <a href="https://github.com/dyte-in/docs-template/issues">Report Bug</a>
+    <a href="https://github.com/dyte-in/kotlin-sample-app/issues">Report Bug</a>
     ·
-    <a href="https://github.com/dyte-in/docs-template/issues">Request Feature</a>
+    <a href="https://github.com/dyte-in/kotlin-sample-app/issues">Request Feature</a>
   </p>
 </p>
 
@@ -92,7 +92,6 @@ And then click the Join the participant/host button to join the meeting:
 <img src="./doc/create_meeting_3.png">
 
 
-
 To join an existing meeting, click the Join meeting button:
 
 <img src="./doc/join_meeting_1.png">
@@ -108,13 +107,13 @@ See [CHANGELOG](./CHANGELOG.md).
 
 ## Roadmap
 
-See the [open issues](https://github.com/dyte-in/docs-template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/dyte-in/kotlin-sample-app/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Sincere thanks to all [our contributors](Thank you, [contributors](https://github.com/dyte-in/docs-template/graphs/contributors)!)!
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Sincere thanks to all our contributors. Thank you, [contributors](https://github.com/dyte-in/kotlin-sample-app/graphs/contributors)!
 
 You are requested to follow the contribution guidelines specified in [CONTRIBUTING.md](./CONTRIBUTING.md) and code of conduct at [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) while contributing to the project :smile:.
 
