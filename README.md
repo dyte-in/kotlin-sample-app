@@ -4,7 +4,7 @@
     <img src="https://dyte-uploads.s3.ap-south-1.amazonaws.com/dyte-logo-dark.svg" alt="Logo" width="80">
   </a>
 
-  <h2 align="center">Dyte Kotlin Sample Apps</h3>
+  <h2 align="center">Dyte Kotlin Sample App</h3>
 
   <p align="center">
     An example app in kotlin using the Dyte Mobile SDK
@@ -62,16 +62,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-Clone the project:
-```
-
-```
-
-- npm
-
-```sh
-npm install npm@latest -g
-```
+- Android Studio (With Kotlin Plugin)
 
 ### Installation
 
@@ -81,19 +72,34 @@ npm install npm@latest -g
 git clone git@github.com:dyte-in/kotlin-sample-app.git
 ```
 
-2. Install NPM packages
-
-```sh
-npm install
-```
+2. Open the project in Android Studio, and click build/run to run the project.
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+The app has two main functionalities:
 
-_For more examples, please refer to the [Documentation](https://example.com)._
+- Creating a meeting:
+
+To create a meeting, switch to the create meeting tab using the "Create meeting" button:
+
+<img src="./doc/create_meeting_1.png">
+
+Enter the meeting title, and then hit the create button
+
+<img src="./doc/create_meeting_2.png">
+
+And then click the Join the participant/host button to join the meeting:
+
+<img src="./doc/create_meeting_3.png">
+
+
+
+To join an existing meeting, click the Join meeting button:
+
+<img src="./doc/join_meeting_1.png">
+
 
 <!-- CHANGELOG -->
 
