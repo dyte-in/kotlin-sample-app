@@ -54,7 +54,6 @@ class CustomMeetingActivity : AppCompatActivity() {
 
         binding.endCallButton.setOnClickListener{
             DyteMeeting.self.leaveRoom()
-            finishActivity(0)
             super.onBackPressed();
         }
 
@@ -64,11 +63,7 @@ class CustomMeetingActivity : AppCompatActivity() {
 
         val roomName = intent.getStringExtra("roomName")
         val authToken = intent.getStringExtra("authToken")
-        if (roomName != null) {
-            Log.i(TAG, roomName)
-        } else {
-            Log.e(TAG, "room name is null!")
-        }
+
         // Configure meeting parameters
         val config = MeetingConfig()
         config.setRoomName(roomName)
