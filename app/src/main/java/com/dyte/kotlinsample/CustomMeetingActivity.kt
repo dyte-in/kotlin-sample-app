@@ -1,5 +1,6 @@
 package com.dyte.kotlinsample
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dyteMobileSdk.DyteInstanceManager
@@ -9,7 +10,6 @@ import android.os.Build
 import android.content.Intent
 
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 
 import android.view.ViewGroup
@@ -20,7 +20,6 @@ import com.dyteclientmobile.DyteMeeting
 import com.dyteclientmobile.DyteMeeting.MeetingEventListener
 
 import com.dyteclientmobile.MeetingConfig
-import org.json.JSONObject
 
 
 
@@ -69,14 +68,23 @@ class CustomMeetingActivity : AppCompatActivity() {
         config.setRoomName(roomName)
             .setAuthToken(authToken)
         DyteMeeting.setup(config)
+
+        // Initialize the dyte meeeting to cover the parent width and height
         val view: View = DyteMeeting.init(this, meetingContainer.width, meetingContainer.height)
 
+
+        // Add an event listener on meeting joined, to show an alert as soon as joined
         DyteMeeting.addEventListener(object : MeetingEventListener {
             override fun meetingJoined() {
-//                Modify UI config here, as needed!
-//                val uiConfig = JSONObject()
-//                uiConfig.put("controlBar", false)
-//                DyteMeeting.updateUIConfig(uiConfig.toString())
+                AlertDialog.Builder(this@CustomMeetingActivity).setTitle("Meeting Joined!")
+                    .setMessage("Received the meetingJoined event!")
+                    .setPositiveButton(android.R.string.ok) { _, _ -> }
+                    .setIcon(android.R.drawable.ic_dialog_alert).show()
+                // Modify UI config here, as needed! Here is an example to remove
+                // the control bar
+                // val uiConfig = JSONObject()
+                // uiConfig.put("controlBar", false)
+                // DyteMeeting.updateUIConfig(uiConfig.toString())
             }
         })
 
