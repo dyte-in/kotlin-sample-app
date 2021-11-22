@@ -101,22 +101,35 @@ class MainActivity : AppCompatActivity() {
                 } else if (role == "participant") {
                     body.presetName = "default_webinar_participant_preset"
                 }
-
-            } else if (meetingType == "Custom Call") {
-
             }
+
+            // Make the API call to add the participant
             val participantResponse = api.addParticipant(
                 body
             ).data.authResponse
+            val roomName = meeting.roomName
+            val authToken = participantResponse.authToken
 
-            val config = MeetingConfig()
-            config.setRoomName(meeting.roomName)
-            config.setAuthToken(participantResponse.authToken)
+            // If we have a custom meeting, then, we navigate to our custom meeting
+            // activity.
 
-            DyteMeeting.setup(config)
+            if (meetingType == "Custom Call") {
+                val intent = Intent(this@MainActivity, CustomMeetingActivity::class.java).apply {
+                    this.putExtra("roomName", roomName)
+                    this.putExtra("authToken", authToken)
+                }
+                startActivityForResult(intent, 0)
+            } else {
+                // Otherwise, we use the DyteMeetingActivity already provided with the SDK!
+                val config = MeetingConfig()
+                config.setRoomName(roomName)
+                config.setAuthToken(authToken)
 
-            val meetingIntent = Intent(this@MainActivity, DyteMeetingActivity::class.java)
-            startActivity(meetingIntent)
+                DyteMeeting.setup(config)
+
+                val meetingIntent = Intent(this@MainActivity, DyteMeetingActivity::class.java)
+                startActivity(meetingIntent)
+            }
         }
     }
 

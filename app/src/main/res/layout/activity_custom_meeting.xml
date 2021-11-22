@@ -2,48 +2,49 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dytemeetinglayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CustomMeetingActivity">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="500dp"
-        android:layout_marginTop="32dp"
+    <LinearLayout
+        android:id="@+id/meetingContainer"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/toggleMicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Toggle Mic"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/toggleVideoButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/meetingContainer" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/toggleVideoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Toggle Video"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/endCallButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/toggleMicButton"
+        app:layout_constraintTop_toTopOf="@+id/toggleMicButton" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/endCallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="End Call"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/toggleVideoButton"
+        app:layout_constraintTop_toTopOf="@+id/toggleMicButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
