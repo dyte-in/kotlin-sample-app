@@ -96,9 +96,9 @@ class MainActivity : AppCompatActivity() {
             if (meetingType == "Group Call") {
                 body.roleName = role
             } else if (meetingType == "Webinar Call") {
-                if (body.roleName == "host") {
+                if (role == "host") {
                     body.presetName = "default_webinar_host_preset"
-                } else {
+                } else if (role == "participant") {
                     body.presetName = "default_webinar_participant_preset"
                 }
 
