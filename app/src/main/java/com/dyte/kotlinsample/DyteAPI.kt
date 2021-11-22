@@ -37,8 +37,8 @@ data class AddParticipantBody(
     val meetingId: String,
     val clientSpecificId: String,
     val userDetails: UserDetails? = null,
-    val roleName: String? = null,
-    val presetName: String? = null
+    var roleName: String? = null,
+    var presetName: String? = null
 )
 
 data class UserDetails(

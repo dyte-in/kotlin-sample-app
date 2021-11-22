@@ -13,6 +13,8 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_weight="0.5"
         android:gravity="center"
         android:orientation="vertical">
@@ -29,7 +31,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:paddingEnd="4dp"
-                android:text="Meeting Title: " />
+                android:text="Meeting Title: "
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/meetingTitle"
@@ -50,7 +53,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:paddingRight="5dp"
-                android:text="Room Name: " />
+                android:text="Room Name: "
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/roomName"
@@ -65,6 +69,8 @@
         android:id="@+id/joinMeetingButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_weight="0.5"
         android:text="Join" />
 </android.widget.LinearLayout>

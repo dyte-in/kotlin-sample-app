@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -64,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getMeetingType(): String {
+       return findViewById<Spinner>(R.id.meetingTypeSpinner).selectedItem.toString()
+    }
+
     /*
     * Joins a meeting with a given display name and role.
     * */
@@ -77,13 +82,31 @@ class MainActivity : AppCompatActivity() {
         val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.Main)
         coroutineScope.launch(errorHandler) {
             val api = DyteAPI()
+            val meetingType = getMeetingType()
+
+            // Create the base participant request body with the meeting Id
+            // and the name of the participant
+            var body = AddParticipantBody(
+                meeting.id,
+                "kotlinSample",
+                UserDetails(displayName),
+            )
+
+            // Depending on the meeting type either assign the role or preset for the participant
+            if (meetingType == "Group Call") {
+                body.roleName = role
+            } else if (meetingType == "Webinar Call") {
+                if (body.roleName == "host") {
+                    body.presetName = "default_webinar_host_preset"
+                } else {
+                    body.presetName = "default_webinar_participant_preset"
+                }
+
+            } else if (meetingType == "Custom Call") {
+
+            }
             val participantResponse = api.addParticipant(
-                AddParticipantBody(
-                    meeting.id,
-                    "kotlinSample",
-                    UserDetails(displayName),
-                    role,
-                )
+                body
             ).data.authResponse
 
             val config = MeetingConfig()

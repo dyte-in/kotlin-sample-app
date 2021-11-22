@@ -7,6 +7,17 @@
     tools:context=".JoinMeetingFragment">
 
     <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="3. Join a meeting from the list below:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/JoinMeetingsHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,17 +26,16 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/meetingListView"
         android:layout_width="409dp"
         android:layout_height="683dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/JoinMeetingsHeading"
+        android:layout_marginTop="16dp"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/JoinMeetingsHeading" />
 </androidx.constraintlayout.widget.ConstraintLayout>
