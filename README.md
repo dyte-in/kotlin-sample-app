@@ -42,6 +42,8 @@
 
 ## About The Project
 
+<img src="./doc/kotlin_sample_demo.gif">
+
 This repository hosts an example application to use the Dyte Mobile SDK for Kotlin, and showcases the various functionality that is possible with the SDK. For more information, [view the documentation for our Android SDK here](https://docs.dyte.io/android/installation)
 
 This app interacts with the Dyte Rest API using the [sample app backend, which can be found here](https://github.com/dyte-in/backend-sample-app).
@@ -75,26 +77,18 @@ git clone git@github.com:dyte-in/kotlin-sample-app.git
 
 ## Usage
 
-The app has two main functionalities:
+The app shows how the Kotlin SDK can be used to change UI components and control different aspects of a meeting, as well as listen for meeting events. The different use cases shown in the app are:
 
-- Creating a meeting:
-
-To create a meeting, switch to the create meeting tab using the "Create meeting" button:
-
-<img src="./doc/create_meeting_1.png">
-
-Enter the meeting title, and then hit the create button
-
-<img src="./doc/create_meeting_2.png">
-
-And then click the Join the participant/host button to join the meeting:
-
-<img src="./doc/create_meeting_3.png">
-
-
-To join an existing meeting, click the Join meeting button:
-
-<img src="./doc/join_meeting_1.png">
+- Group calls
+  <br><br>
+  <img src="./doc/kotlin_app_group_calls.png">
+- Webinar Calls
+  <br><br>
+  <img src="./doc/kotlin_app_webinar.png">
+- Custom calls
+  <br><br>
+  <img src="./doc/kotlin_app_custom.png">
+  
 
 
 <!-- CHANGELOG -->
