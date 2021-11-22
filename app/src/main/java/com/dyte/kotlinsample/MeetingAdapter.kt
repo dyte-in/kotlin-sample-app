@@ -8,6 +8,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+/*
+* A helper class to build an adapter to populate
+* an Android Recycler View with the list of Dyte meetings.
+* */
 public class MeetingAdapter(
     private val context: Context,
     private val meetings: List<Meeting>
@@ -26,9 +30,12 @@ public class MeetingAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val meeting = meetings[position]
+
+        // Populate each list item with the meeting title, room name, and
+        // join the corresponding meeting on clicking the button.
         holder.itemView.findViewById<TextView>(R.id.meetingTitle).text = meeting.title
         holder.itemView.findViewById<TextView>(R.id.roomName).text = meeting.roomName
-        holder.itemView.findViewById<TextView>(R.id.button4).setOnClickListener {
+        holder.itemView.findViewById<TextView>(R.id.joinMeetingButton).setOnClickListener {
             (context as MainActivity).showMeetingJoinAlert(meeting)
         }
     }

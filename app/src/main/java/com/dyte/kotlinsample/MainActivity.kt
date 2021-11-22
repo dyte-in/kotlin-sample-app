@@ -3,16 +3,11 @@ package com.dyte.kotlinsample
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.Display
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.EditText
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.dyte.kotlinsample.databinding.ActivityMainBinding
 import com.dyteclientmobile.DyteMeeting
 import com.dyteclientmobile.DyteMeetingActivity
@@ -31,20 +26,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setTitle("Dyte Kotlin Sample")
+        supportActionBar?.title = "Dyte Kotlin Sample"
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
-        binding.button.setOnClickListener {
-            navController.navigate(R.id.FirstFragment)
+        binding.createMeetingTabButton.setOnClickListener {
+            navController.navigate(R.id.CreateMeetingFragment)
         }
 
-        binding.button2.setOnClickListener {
-            navController.navigate(R.id.SecondFragment)
+        binding.JoinMeetingTabButton.setOnClickListener {
+            navController.navigate(R.id.JoinMeetingFragment)
         }
-//        appBarConfiguration = AppBarConfiguration(navController.graph)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -53,7 +45,11 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
-    public fun createNewMeeting(meetingTitle: String) {
+    /*
+    * Creates a new Dyte meeting with the given title, and then shows a popup to join the
+    * newly created meeting
+    * */
+    fun createNewMeeting(meetingTitle: String) {
         val mainActivityJob = Job()
 
         val errorHandler = CoroutineExceptionHandler { _, exception ->
@@ -63,12 +59,15 @@ class MainActivity : AppCompatActivity() {
         val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.Main)
         coroutineScope.launch(errorHandler) {
             val api = DyteAPI()
-            val meeting = api.createMeeting(CreateMeetingBody(meetingTitle, Authorization(false))).data.meeting;
+            val meeting = api.createMeeting(CreateMeetingBody(meetingTitle, Authorization(false))).data.meeting
             showMeetingJoinAlert(meeting)
         }
     }
 
-    public fun joinMeeting(meeting: Meeting, displayName: String, role: String) {
+    /*
+    * Joins a meeting with a given display name and role.
+    * */
+    private fun joinMeeting(meeting: Meeting, displayName: String, role: String) {
         val mainActivityJob = Job()
 
         val errorHandler = CoroutineExceptionHandler { _, exception ->
@@ -82,7 +81,8 @@ class MainActivity : AppCompatActivity() {
                 AddParticipantBody(
                     meeting.id,
                     "kotlinSample",
-                    UserDetails(displayName)
+                    UserDetails(displayName),
+                    role,
                 )
             ).data.authResponse
 
@@ -97,14 +97,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    public fun showErrorAlert(title: String, message: String?) {
+    /*
+    * Helper function to show error alerts for all exceptions
+    * raised by the app
+    * */
+    fun showErrorAlert(title: String, message: String?) {
         AlertDialog.Builder(this).setTitle(title)
             .setMessage(message)
             .setPositiveButton(android.R.string.ok) { _, _ -> }
             .setIcon(android.R.drawable.ic_dialog_alert).show()
     }
 
-    public fun showMeetingJoinAlert(meeting: Meeting) {
+    /*
+    * Shows an alert to join a meeting, and prompts the user for the participant
+    * name to join as. Also shows two buttons, one to join the meeting with the
+    * host role, and one to join with the participant role.
+    * */
+    fun showMeetingJoinAlert(meeting: Meeting) {
 
         val viewInflated = layoutInflater.inflate(R.layout.participant_name, findViewById(android.R.id.content),false)
         val txtName = viewInflated.findViewById<EditText>(R.id.participant_name_input)

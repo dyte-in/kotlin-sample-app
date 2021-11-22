@@ -6,16 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.dyte.kotlinsample.databinding.FragmentSecondBinding
+import com.dyte.kotlinsample.databinding.JoinMeetingFragmentBinding
 import kotlinx.coroutines.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class JoinMeetingFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: JoinMeetingFragmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +25,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = JoinMeetingFragmentBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -42,8 +41,9 @@ class SecondFragment : Fragment() {
         coroutineScope.launch(errorHandler) {
             val api = DyteAPI()
             val meetings = api.getMeetings()
+            // Populate the Recycler View using our custom Meeting Adapter
             binding.meetingListView.adapter =
-                this@SecondFragment.context?.let { MeetingAdapter((activity as Context), meetings.data.meetings) }
+                this@JoinMeetingFragment.context?.let { MeetingAdapter((activity as Context), meetings.data.meetings) }
             binding.meetingListView.setHasFixedSize(true)
         }
     }

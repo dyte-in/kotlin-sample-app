@@ -28,25 +28,25 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/createMeetingTabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Create Meeting"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/JoinMeetingTabButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/JoinMeetingTabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Join Meeting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/createMeetingTabButton"
+        app:layout_constraintTop_toTopOf="@+id/createMeetingTabButton" />
 
     <fragment
         android:id="@+id/nav_host_fragment_content_main"
@@ -59,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/createMeetingTabButton"
         app:layout_constraintVertical_bias="1.0"
         app:navGraph="@navigation/nav_graph" />
 

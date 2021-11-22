@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.dyte.kotlinsample.databinding.FragmentFirstBinding
+import com.dyte.kotlinsample.databinding.CreateMeetingFragmentBinding
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class CreateMeetingFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: CreateMeetingFragmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +24,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = CreateMeetingFragmentBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -32,7 +32,9 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.button3.setOnClickListener{
+        // Create a new meeting on clicking the "Create" button, using the meeting
+        // title entered by the user
+        binding.createMeetingButton.setOnClickListener{
             (activity as MainActivity).createNewMeeting(binding.textInputLayout.editText?.text.toString())
         }
     }

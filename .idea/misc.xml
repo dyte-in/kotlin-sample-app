@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27445652173913043" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.196875" />
+        <entry key="app/src/main/res/layout/create_meeting_fragment.xml" value="0.223731884057971" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.196875" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.27445652173913043" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.25" />
