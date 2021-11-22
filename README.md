@@ -42,17 +42,15 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This repository hosts an example application to use the Dyte Mobile SDK for Kotlin, and showcases the various functionality that is possible with the SDK. For more information, [view the documentation for our Android SDK here](https://docs.dyte.io/android/installation)
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`docs-template`
-
+This app interacts with the Dyte Rest API using the [sample app backend, which can be found here](https://github.com/dyte-in/kotlin-sample-app).
 ### Built With
 
-- [Kotlin]()
-- [Dyte Mobile SDK]()
-- [Retrofit]()
+- [Kotlin](https://kotlinlang.org/)
+- [Dyte Mobile SDK](https://docs.dyte.io/android/installation)
+- [Retrofit](https://square.github.io/retrofit/)
+- [Android Studio](https://developer.android.com/studio)
 
 <!-- GETTING STARTED -->
 
@@ -72,9 +70,8 @@ To get a local copy up and running follow these simple steps.
 git clone git@github.com:dyte-in/kotlin-sample-app.git
 ```
 
-2. Open the project in Android Studio, and click build/run to run the project.
-
-<!-- USAGE EXAMPLES -->
+2. Open the project in Android Studio.
+3. Click the build/run button to run the app in an emulator/physical device
 
 ## Usage
 
@@ -139,7 +136,7 @@ Distributed under the Apache License, Version 2.0. See [`LICENSE`](./LICENSE) fo
 
 ## About
 
-`docs-template` is created & maintained by Dyte, Inc. You can find us on Twitter - [@dyte_io](twitter.com/dyte_io) or write to us at `dev [at] dyte.io`.
+`kotlin-sample-app` is created & maintained by Dyte, Inc. You can find us on Twitter - [@dyte_io](twitter.com/dyte_io) or write to us at `dev [at] dyte.io`.
 
 The names and logos for Dyte are trademarks of Dyte, Inc.
 
