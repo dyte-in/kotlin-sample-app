@@ -44,7 +44,7 @@
 
 This repository hosts an example application to use the Dyte Mobile SDK for Kotlin, and showcases the various functionality that is possible with the SDK. For more information, [view the documentation for our Android SDK here](https://docs.dyte.io/android/installation)
 
-This app interacts with the Dyte Rest API using the [sample app backend, which can be found here](https://github.com/dyte-in/kotlin-sample-app).
+This app interacts with the Dyte Rest API using the [sample app backend, which can be found here](https://github.com/dyte-in/backend-sample-app).
 ### Built With
 
 - [Kotlin](https://kotlinlang.org/)
