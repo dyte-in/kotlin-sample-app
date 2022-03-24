@@ -20,6 +20,7 @@ import com.dyteclientmobile.DyteMeeting
 import com.dyteclientmobile.DyteMeeting.MeetingEventListener
 
 import com.dyteclientmobile.MeetingConfig
+//import org.json.JSONObject
 
 
 
@@ -81,7 +82,7 @@ class CustomMeetingActivity : AppCompatActivity() {
                     .setPositiveButton(android.R.string.ok) { _, _ -> }
                     .setIcon(android.R.drawable.ic_dialog_alert).show()
                 // Modify UI config here, as needed! Here is an example to remove
-                // the control bar
+                // the control bar ( uncomment JSONObject import above too )
                 // val uiConfig = JSONObject()
                 // uiConfig.put("controlBar", false)
                 // DyteMeeting.updateUIConfig(uiConfig.toString())
