@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 
             // Create the base participant request body with the meeting Id
             // and the name of the participant
-            var body = AddParticipantBody(
+            val body = AddParticipantBody(
                 meeting.id,
                 "kotlinSample",
                 UserDetails(displayName),
