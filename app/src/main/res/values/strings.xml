@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">dyte</string>
+    <string name="app_name">Dyte</string>
     <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="blank_fragment_label">Blank Fragment</string>
