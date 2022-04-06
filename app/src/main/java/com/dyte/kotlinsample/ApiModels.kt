@@ -14,7 +14,7 @@ data class MeetingField(
 data class MeetingResponse(
     val success: Boolean,
     val data: MeetingField
-);
+)
 
 data class CreateMeetingBody(
     val title: String,

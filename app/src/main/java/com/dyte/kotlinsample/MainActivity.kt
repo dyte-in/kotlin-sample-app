@@ -3,6 +3,7 @@ package com.dyte.kotlinsample
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
@@ -54,13 +55,20 @@ class MainActivity : AppCompatActivity() {
         val mainActivityJob = Job()
 
         val errorHandler = CoroutineExceptionHandler { _, exception ->
+            binding.llLoaderContainer.visibility = View.GONE
             showErrorAlert("Error", exception.message)
         }
 
         val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.Main)
         coroutineScope.launch(errorHandler) {
+            withContext(Dispatchers.Main) {
+                binding.llLoaderContainer.visibility = View.VISIBLE
+            }
             val api = DyteAPI()
             val meeting = api.createMeeting(CreateMeetingBody(meetingTitle, Authorization(false))).data.meeting
+            withContext(Dispatchers.Main) {
+                binding.llLoaderContainer.visibility = View.GONE
+            }
             showMeetingJoinAlert(meeting)
         }
     }
@@ -76,11 +84,16 @@ class MainActivity : AppCompatActivity() {
         val mainActivityJob = Job()
 
         val errorHandler = CoroutineExceptionHandler { _, exception ->
+            binding.llLoaderContainer.visibility = View.GONE
             showErrorAlert("Error", exception.message)
         }
 
         val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.Main)
         coroutineScope.launch(errorHandler) {
+            withContext(Dispatchers.Main) {
+                binding.llLoaderContainer.visibility = View.VISIBLE
+            }
+
             val api = DyteAPI()
             val meetingType = getMeetingType()
 
@@ -110,9 +123,12 @@ class MainActivity : AppCompatActivity() {
             val roomName = meeting.roomName
             val authToken = participantResponse.authToken
 
+            withContext(Dispatchers.Main) {
+                binding.llLoaderContainer.visibility = View.GONE
+            }
+
             // If we have a custom meeting, then, we navigate to our custom meeting
             // activity.
-
             if (meetingType == "Custom Call") {
                 val intent = Intent(this@MainActivity, CustomMeetingActivity::class.java).apply {
                     this.putExtra("roomName", roomName)

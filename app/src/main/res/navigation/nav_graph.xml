@@ -3,7 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/CreateMeetingFragment">
+    app:startDestination="@id/BlankFragment">
+
+    <fragment
+        android:id="@+id/BlankFragment"
+        android:name="com.dyte.kotlinsample.BlankFragment"
+        android:label="@string/blank_fragment_label"
+        tools:layout="@layout/fragment_blank">
+
+        <action
+            android:id="@+id/action_BlankFragment_to_FirstFragment"
+            app:destination="@id/CreateMeetingFragment" />
+
+        <action
+            android:id="@+id/action_BlankFragment_to_SecondFragment"
+            app:destination="@id/JoinMeetingFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/CreateMeetingFragment"
@@ -15,6 +30,7 @@
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/JoinMeetingFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/JoinMeetingFragment"
         android:name="com.dyte.kotlinsample.JoinMeetingFragment"
