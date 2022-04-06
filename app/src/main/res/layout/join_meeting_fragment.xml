@@ -42,6 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/JoinMeetingsHeading" />
 
     <LinearLayout
+        android:elevation="10dp"
         android:visibility="gone"
         android:id="@+id/llLoaderContainer"
         android:background="#80000000"

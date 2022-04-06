@@ -67,6 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/meetingTypeSpinner" />
 
     <Button
+        android:elevation="0dp"
         android:id="@+id/createMeetingTabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,6 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
+        android:elevation="0dp"
         android:id="@+id/JoinMeetingTabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,6 +105,7 @@
         app:navGraph="@navigation/nav_graph" />
 
     <LinearLayout
+        android:elevation="10dp"
         android:visibility="gone"
         android:id="@+id/llLoaderContainer"
         android:background="#80000000"

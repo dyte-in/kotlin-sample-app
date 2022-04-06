@@ -48,7 +48,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.3'
-    implementation "com.dyteclientmobile:sdk:+"
+    implementation "com.dyteclientmobile:sdk:0.15.2"
     // optionally if you app does not have support libraries
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 }
