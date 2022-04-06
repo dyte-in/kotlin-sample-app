@@ -30,12 +30,32 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/meetingListView"
-        android:layout_width="409dp"
-        android:layout_height="683dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:scrollbars="vertical"
+        android:fadeScrollbars="false"
         app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/JoinMeetingsHeading" />
+
+    <LinearLayout
+        android:id="@+id/llLoaderContainer"
+        android:background="#80000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="0dp" >
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
