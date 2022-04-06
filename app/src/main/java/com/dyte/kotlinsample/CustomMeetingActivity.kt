@@ -1,44 +1,30 @@
 package com.dyte.kotlinsample
 
 import android.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.dyteMobileSdk.DyteInstanceManager
-
-import android.os.Build
-
 import android.content.Intent
-
+import android.os.Build
+import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.dyte.kotlinsample.databinding.ActivityCustomMeetingBinding
-
+import com.dyteMobileSdk.DyteInstanceManager
 import com.dyteclientmobile.DyteMeeting
 import com.dyteclientmobile.DyteMeeting.MeetingEventListener
-
 import com.dyteclientmobile.MeetingConfig
-//import org.json.JSONObject
-
-
-
-
-
-
 
 class CustomMeetingActivity : AppCompatActivity() {
     private val OVERLAY_PERMISSION_REQ_CODE = 1212
-    private val TAG = "CustomMeetingActivity"
     private lateinit var binding: ActivityCustomMeetingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCustomMeetingBinding.inflate(layoutInflater)
 
         binding.toggleMicButton.setOnClickListener {
             if (DyteMeeting.self.audioEnabled) {
-                DyteMeeting.self.disableAudio();
+                DyteMeeting.self.disableAudio()
             } else {
                 DyteMeeting.self.enableAudio()
             }
@@ -46,20 +32,20 @@ class CustomMeetingActivity : AppCompatActivity() {
 
         binding.toggleVideoButton.setOnClickListener {
             if (DyteMeeting.self.videoEnabled) {
-                DyteMeeting.self.disableVideo();
+                DyteMeeting.self.disableVideo()
             } else {
                 DyteMeeting.self.enableVideo()
             }
         }
 
-        binding.endCallButton.setOnClickListener{
+        binding.endCallButton.setOnClickListener {
             DyteMeeting.self.leaveRoom()
-            super.onBackPressed();
+            super.onBackPressed()
         }
 
         setContentView(binding.root)
 
-        val meetingContainer = findViewById<LinearLayout>(R.id.meetingContainer)
+        val meetingContainer = binding.meetingContainer
 
         val roomName = intent.getStringExtra("roomName")
         val authToken = intent.getStringExtra("authToken")
@@ -89,13 +75,12 @@ class CustomMeetingActivity : AppCompatActivity() {
             }
         })
 
-
         // Example
         val viewGroup = findViewById<ViewGroup>(R.id.meetingContainer)
         viewGroup.addView(view)
     }
 
-
+    @Suppress("ControlFlowWithEmptyBody")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
