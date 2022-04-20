@@ -113,8 +113,6 @@ You are requested to follow the contribution guidelines specified in [CONTRIBUTI
 
 ## Support
 
-(Ask for support or sponsorships by providing links or just add a simple message)
-
 Contributions, issues, and feature requests are welcome!
 Give a ⭐️ if you like this project!
 
